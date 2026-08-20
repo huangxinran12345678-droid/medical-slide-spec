@@ -1,0 +1,216 @@
+{
+  "schema_version": "v11.0",
+  "cards": [
+    {
+      "id": "nursing_round",
+      "name": "护理查房",
+      "family": "clinical_case",
+      "file": "nursing-round.md",
+      "base_content_route": "nursing_case",
+      "required_logic_terms": [
+        {"label": "疾病知识", "any_of": ["疾病知识"]},
+        {"label": "病例介绍", "any_of": ["病例介绍", "病例时间线"]},
+        {"label": "护理评估", "any_of": ["护理评估"]},
+        {"label": "护理问题与措施", "any_of": ["护理问题", "护理诊断"]},
+        {"label": "床边查体", "any_of": ["床边查体"]},
+        {"label": "讨论总结", "any_of": ["护长总结", "病例讨论"]}
+      ]
+    },
+    {
+      "id": "nursing_teaching_round",
+      "name": "护理教学查房",
+      "family": "clinical_case",
+      "file": "nursing-teaching-round.md",
+      "base_content_route": "medical_teaching",
+      "required_logic_terms": [
+        {"label": "学情分析", "any_of": ["学情分析"]},
+        {"label": "学习目标", "any_of": ["学习目标"]},
+        {"label": "病例导入", "any_of": ["病例导入"]},
+        {"label": "查体或示范", "any_of": ["床边查体", "技能示范"]},
+        {"label": "临床推理", "any_of": ["临床推理", "病例讨论"]},
+        {"label": "教学评价", "any_of": ["教学评价", "学习评价"]}
+      ]
+    },
+    {
+      "id": "nursing_case",
+      "name": "护理个案",
+      "family": "clinical_case",
+      "file": "nursing-case.md",
+      "base_content_route": "nursing_case",
+      "required_logic_terms": [
+        {"label": "专科价值", "any_of": ["专科价值", "案例价值"]},
+        {"label": "护理难点", "any_of": ["护理难点", "关键临床问题"]},
+        {"label": "护理评估", "any_of": ["护理评估"]},
+        {"label": "个体化计划", "any_of": ["个体化计划", "护理目标"]},
+        {"label": "循证措施", "any_of": ["循证措施", "循证依据"]},
+        {"label": "效果反思", "any_of": ["护理效果", "反思"]}
+      ]
+    },
+    {
+      "id": "pdca_qi",
+      "name": "PDCA质量改进",
+      "family": "quality_safety",
+      "file": "pdca-qi.md",
+      "base_content_route": "pdca_qi",
+      "required_logic_terms": [
+        {"label": "指标与基线", "any_of": ["指标定义", "基线"]},
+        {"label": "目标", "any_of": ["改进目标", "目标值"]},
+        {"label": "真因验证", "any_of": ["真因验证"]},
+        {"label": "对策实施", "any_of": ["对策实施", "实施过程"]},
+        {"label": "过程指标", "any_of": ["过程指标"]},
+        {"label": "标准化", "any_of": ["标准化", "持续监测"]}
+      ]
+    },
+    {
+      "id": "qcc",
+      "name": "品管圈QCC",
+      "family": "quality_safety",
+      "file": "qcc.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "圈介绍", "any_of": ["圈介绍", "圈名"]},
+        {"label": "主题选定", "any_of": ["主题选定"]},
+        {"label": "现状把握", "any_of": ["现状把握"]},
+        {"label": "目标设定", "any_of": ["目标设定"]},
+        {"label": "解析与真因", "any_of": ["真因验证", "解析"]},
+        {"label": "效果确认", "any_of": ["效果确认"]},
+        {"label": "标准化与检讨", "any_of": ["标准化", "检讨与改进"]}
+      ]
+    },
+    {
+      "id": "rca_event",
+      "name": "护理不良事件RCA",
+      "family": "quality_safety",
+      "file": "rca-event.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "事件概况", "any_of": ["事件概况", "事件分级"]},
+        {"label": "立即处置", "any_of": ["立即处置"]},
+        {"label": "事件重建", "any_of": ["事件时间线", "流程重建"]},
+        {"label": "根本原因", "any_of": ["根本原因", "系统根因"]},
+        {"label": "系统改进", "any_of": ["系统性改进", "系统改进"]},
+        {"label": "追踪与残余风险", "any_of": ["残余风险", "改进后追踪"]}
+      ]
+    },
+    {
+      "id": "patient_education",
+      "name": "健康宣教与患者教育",
+      "family": "education_communication",
+      "file": "patient-education.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "目标人群", "any_of": ["目标人群"]},
+        {"label": "核心事实", "any_of": ["核心事实"]},
+        {"label": "行动与自我管理", "any_of": ["自我管理", "日常应该怎么做"]},
+        {"label": "危险信号", "any_of": ["危险信号", "何时就医"]},
+        {"label": "常见误区", "any_of": ["常见误区"]},
+        {"label": "行动清单", "any_of": ["行动清单"]}
+      ]
+    },
+    {
+      "id": "nursing_training",
+      "name": "护理小讲课与专科培训",
+      "family": "education_communication",
+      "file": "nursing-training.md",
+      "base_content_route": "medical_teaching",
+      "required_logic_terms": [
+        {"label": "学习需求", "any_of": ["学习需求", "受众问题"]},
+        {"label": "学习目标", "any_of": ["学习目标"]},
+        {"label": "知识框架", "any_of": ["知识框架", "核心概念"]},
+        {"label": "判断或操作", "any_of": ["判断流程", "操作流程"]},
+        {"label": "病例应用", "any_of": ["病例应用", "情景应用"]},
+        {"label": "后测", "any_of": ["后测", "练习"]}
+      ]
+    },
+    {
+      "id": "research_proposal",
+      "name": "护理科研开题",
+      "family": "research_evidence",
+      "file": "research-proposal.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "研究现状与缺口", "any_of": ["研究缺口", "研究现状"]},
+        {"label": "研究目的与假设", "any_of": ["研究目的", "研究假设"]},
+        {"label": "研究设计", "any_of": ["研究设计"]},
+        {"label": "样本与变量", "any_of": ["样本量", "变量"]},
+        {"label": "质量控制与统计", "any_of": ["质量控制", "统计分析"]},
+        {"label": "伦理与可行性", "any_of": ["伦理", "可行性"]}
+      ]
+    },
+    {
+      "id": "research_defense",
+      "name": "护理论文答辩与科研成果汇报",
+      "family": "research_evidence",
+      "file": "research-defense.md",
+      "base_content_route": "research_defense",
+      "required_logic_terms": [
+        {"label": "研究缺口", "any_of": ["研究缺口"]},
+        {"label": "研究方法", "any_of": ["研究方法", "研究设计"]},
+        {"label": "样本流程", "any_of": ["样本流程"]},
+        {"label": "主要结果", "any_of": ["主要结果"]},
+        {"label": "解释与局限", "any_of": ["结果解释", "局限"]},
+        {"label": "结论与追问", "any_of": ["研究结论", "评委追问"]}
+      ]
+    },
+    {
+      "id": "annual_report",
+      "name": "护士长述职与护理年度总结",
+      "family": "management_career",
+      "file": "annual-report.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "职责与年度目标", "any_of": ["岗位职责", "年度目标"]},
+        {"label": "重点工作", "any_of": ["重点工作"]},
+        {"label": "质量与安全", "any_of": ["护理质量", "患者安全"]},
+        {"label": "团队培养", "any_of": ["团队培养", "人力配置"]},
+        {"label": "关键指标", "any_of": ["关键指标"]},
+        {"label": "未达标与下一年", "any_of": ["未达标", "下一年度"]}
+      ]
+    },
+    {
+      "id": "job_competition",
+      "name": "护士长与岗位竞聘",
+      "family": "management_career",
+      "file": "job-competition.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "岗位理解", "any_of": ["岗位理解"]},
+        {"label": "匹配经历", "any_of": ["岗位匹配", "匹配的经历"]},
+        {"label": "可核验业绩", "any_of": ["可核验", "代表性业绩"]},
+        {"label": "管理设想", "any_of": ["管理理念", "工作设想"]},
+        {"label": "团队与质量", "any_of": ["团队建设", "质量安全"]},
+        {"label": "计划与保障", "any_of": ["三年规划", "实施保障"]}
+      ]
+    },
+    {
+      "id": "evidence_translation",
+      "name": "循证护理与证据转化",
+      "family": "research_evidence",
+      "file": "evidence-translation.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "PICO与检索", "any_of": ["PICO", "证据检索"]},
+        {"label": "证据质量", "any_of": ["证据质量评价"]},
+        {"label": "审查标准与基线", "any_of": ["审查标准", "基线审查"]},
+        {"label": "障碍与促进因素", "any_of": ["障碍", "促进因素"]},
+        {"label": "证据转化与实施", "any_of": ["证据转化", "实施过程"]},
+        {"label": "再审查与持续性", "any_of": ["再审查", "可持续性"]}
+      ]
+    },
+    {
+      "id": "new_technology_project",
+      "name": "护理新技术与新项目",
+      "family": "project_application",
+      "file": "new-technology-project.md",
+      "base_content_route": "outline_custom",
+      "required_logic_terms": [
+        {"label": "临床需求", "any_of": ["临床需求", "现有不足"]},
+        {"label": "原理与适用范围", "any_of": ["技术原理", "适用范围"]},
+        {"label": "证据与必要性", "any_of": ["应用证据", "创新性"]},
+        {"label": "团队与条件", "any_of": ["团队资质", "实施条件"]},
+        {"label": "安全合规", "any_of": ["风险", "伦理", "合规"]},
+        {"label": "评价与准入", "any_of": ["评价指标", "准入请求"]}
+      ]
+    }
+  ]
+}

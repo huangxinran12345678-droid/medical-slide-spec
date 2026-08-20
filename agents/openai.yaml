@@ -1,0 +1,4 @@
+interface:
+  display_name: "医学PPT逐页内容冻结"
+  short_description: "分级核验证据并冻结逐页完整医学文案"
+  default_prompt: "使用 $medical-slide-spec，把医学资料整理为逐页完整客户确认稿，按E0-E3执行证据门禁，确认后冻结同源双文本，并让视觉AI只依据本次参考稿设计。"
