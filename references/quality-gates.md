@@ -85,22 +85,25 @@
 
 ## 8. 自动校验
 
+先将当前`SKILL.md`所在目录解析为`<SKILL_DIR>`。以下示例中的`python`代表可用的Python 3
+启动命令；环境只提供`python3`或Windows Python Launcher时相应替换，不要写死盘符或用户名。
+
 大纲库：
 
-```powershell
-py D:\CodexWorkspace\.codex\skills\medical-slide-spec\scripts\validate_outline_library.py
+```text
+python "<SKILL_DIR>/scripts/validate_outline_library.py"
 ```
 
 草稿：
 
-```powershell
-py D:\CodexWorkspace\.codex\skills\medical-slide-spec\scripts\validate_content_package.py draft "<客户确认稿.txt>" --route nursing_case --mode authorized --outline-card nursing_round
+```text
+python "<SKILL_DIR>/scripts/validate_content_package.py" draft "<客户确认稿.txt>" --route nursing_case --mode authorized --outline-card nursing_round
 ```
 
 冻结对：
 
-```powershell
-py D:\CodexWorkspace\.codex\skills\medical-slide-spec\scripts\validate_content_package.py locked "<客户终版.txt>" --ai "<视觉AI投喂版.txt>" --route nursing_case --mode authorized --outline-card nursing_round
+```text
+python "<SKILL_DIR>/scripts/validate_content_package.py" locked "<客户终版.txt>" --ai "<视觉AI投喂版.txt>" --route nursing_case --mode authorized --outline-card nursing_round
 ```
 
 校验通过只证明文字包结构、内容密度和同源锁通过，不证明医学终审、视觉生成、PPT可编辑性或客户验收。

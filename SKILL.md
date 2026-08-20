@@ -5,7 +5,7 @@ description: 将医学客户资料整理为可直接放入PPT的逐页完整文�
 
 # 医学PPT逐页内容冻结
 
-当前规则版本：`v12.2 证据门禁版`。
+当前规则版本：`v12.3 便携发布版`。
 
 大纲路由继续使用`v11.0 大纲路由`和14张既有大纲卡；v12系列只替换逐页内容与冻结合同。
 
@@ -129,11 +129,13 @@ PPT的内容性质和待确认项。客户确认稿不是概要，不能只写�
 
 ### 1. 建立任务目录与版本
 
-默认使用：
+优先遵循当前工作区`AGENTS.md`、用户指定路径或宿主环境的输出规则。若三者均未规定，默认在
+当前可写工作区创建`outputs/medical-slide-content/YYYYMMDD_任务名/`，临时文件放在同一工作区的
+`tmp/medical-slide-spec/`。不要假定盘符、用户名、操作系统或固定的Codex安装目录。
 
-`D:\CodexWorkspace\02_OUTPUTS\医学PPT内容\YYYYMMDD_任务名\`
-
-保留原始材料只读。不要覆盖旧版本。临时文件和修改前备份放`D:\CodexWorkspace\99_TEMP`。
+保留原始材料只读，不要覆盖旧版本。开始调用脚本前，将当前`SKILL.md`所在目录解析为
+`<SKILL_DIR>`；后续脚本均从该目录的`scripts/`调用。使用环境中可用的Python 3启动命令：
+`python`、`python3`或Windows上的`py -3`，不要写死本机解释器路径。
 
 ### 2. 读取资料并补齐内容要求
 
@@ -201,8 +203,8 @@ PPT的内容性质和待确认项。客户确认稿不是概要，不能只写�
 
 按`assets/customer-content-template.md`生成客户确认稿，运行：
 
-```powershell
-py D:\CodexWorkspace\.codex\skills\medical-slide-spec\scripts\validate_content_package.py draft "<客户确认稿.txt>" --route <route> --mode <mode> [--outline-card <card_id>]
+```text
+python "<SKILL_DIR>/scripts/validate_content_package.py" draft "<客户确认稿.txt>" --route <route> --mode <mode> [--outline-card <card_id>]
 ```
 
 草稿可以有待确认项和未完成证据项，但必须逐项具体列出，并明确`证据冻结状态：阻断`。
@@ -213,14 +215,14 @@ py D:\CodexWorkspace\.codex\skills\medical-slide-spec\scripts\validate_content_p
 收到明确确认后，先把所有逐页`待确认项`处理为`无`，把所有逐页`证据状态`处理为非`待核验`，
 并确认`未完成证据项总数：0`、`证据冻结状态：可冻结`，再运行：
 
-```powershell
-py D:\CodexWorkspace\.codex\skills\medical-slide-spec\scripts\freeze_content_package.py "<已确认客户稿.txt>" --customer-output "<客户终版.txt>" --ai-output "<视觉AI投喂版.txt>" --date YYYYMMDD --version vXX --confirmation "客户已明确确认" --visual-reference "另行提供／本次无参考"
+```text
+python "<SKILL_DIR>/scripts/freeze_content_package.py" "<已确认客户稿.txt>" --customer-output "<客户终版.txt>" --ai-output "<视觉AI投喂版.txt>" --date YYYYMMDD --version vXX --confirmation "客户已明确确认" --visual-reference "另行提供／本次无参考" --route <route> --mode <mode> [--outline-card <card_id>]
 ```
 
 脚本不得覆盖已有文件。生成后运行双文件校验：
 
-```powershell
-py D:\CodexWorkspace\.codex\skills\medical-slide-spec\scripts\validate_content_package.py locked "<客户终版.txt>" --ai "<视觉AI投喂版.txt>" --route <route> --mode <mode> [--outline-card <card_id>]
+```text
+python "<SKILL_DIR>/scripts/validate_content_package.py" locked "<客户终版.txt>" --ai "<视觉AI投喂版.txt>" --route <route> --mode <mode> [--outline-card <card_id>]
 ```
 
 只有双文件内容锁、逐页可见内容和版本全部一致时，才允许进入视觉制作阶段。
